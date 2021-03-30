@@ -1,10 +1,18 @@
 import React from "react"
-// import "./login.css"
+import "./login.css"
 import styled from "styled-components"
 
 
 const Bg = styled.div`
     flex-direction:column;
+    background: moccasin;
+    justify-content:center;
+    
+`;
+
+const Head = styled.div`
+    display:flex;
+    justify-content: center;
 `;
 
 
@@ -12,9 +20,9 @@ export default function Login() {
 
     return(
         <Bg className="bg">
-            <div className="head">
+            <Head className="head">
                 <h1>Food Truck TrackR</h1>
-            </div>
+            </Head>
             <div className="Container">
                 <div className="flavor-text">
                     <h3>Sign In</h3>
