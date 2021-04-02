@@ -1,0 +1,3 @@
+# front-end
+
+This is the Log in page that lets the users log in or be redirected to a create account page for both Operator and Diner. I primarily used react to get everything working and styled but there were some things that I couldn't do without a css style sheet so imported one and used it solely for a few purposes. Also I don't believe the page scaled that well to most computer monitors because I designed it on a 2560 x 1440p monitor and didn't realize that detail until after the fact. Also an issue with the build week assignment is our team didn't have a unit 3 member to tie everything together and so that is why it is the way it is.  
