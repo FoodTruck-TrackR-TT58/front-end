@@ -1,4 +1,48 @@
 import React from "react";
+import styled from 'styled-components'
+
+const FormDiv = styled.div`
+    padding: 6px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    color: royalblue;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        color: darkblue;
+    }
+
+    h4{
+        color: darkslateblue;
+    }
+
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+
+    label{
+        padding: 6px 10px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+`
+
+const FavDiv= styled.div`
+    display: flex;
+    flex-direction: row;
+
+`
+const ErrorDiv = styled.div`
+    align-items: center;
+    color: darkred;
+    display:flex;
+    justify-content: center;
+`
 
 export default function SignupDiner(props) {
 
@@ -16,9 +60,12 @@ export default function SignupDiner(props) {
     }
 
     return (
-        <form className="diner-form container" onSubmit={onSubmit}>        
+        <form className="diner-form container" onSubmit={onSubmit}> 
+            <FormDiv>    
             <h2>Let's get started</h2>
             <div className="diver-form-group inputs">
+                <h4>General Information</h4>
+                <div>
                 <label>
                     Username&nbsp;
                     <input
@@ -54,7 +101,9 @@ export default function SignupDiner(props) {
                         name="address"
                         type="text"
                     />
-                </label>                
+                </label>
+                </div>
+                <FavDiv>             
                 <h4>Favorite Trucks</h4>
                 <label>
                     Truck A
@@ -92,14 +141,17 @@ export default function SignupDiner(props) {
                         onChange={onChange}
                     />
                 </label>
+                </FavDiv>   
                 <button disabled={disabled}>Submit!</button>
-                <div className="errors">
+                <ErrorDiv className="errors">
                     <div>{errors.username}</div>
                     <div>{errors.password}</div>
                     <div>{errors.email}</div>
                     <div>{errors.address}</div>
-                </div>
+                </ErrorDiv>
             </div>
+            </FormDiv>   
         </form>
+
     )
 }

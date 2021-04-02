@@ -1,6 +1,48 @@
-import React, {useState, useEffect} from "react";
-import * as yup from "yup";
-import schema from '../validation/owner-formSchema'
+import React from "react";
+import styled from 'styled-components'
+
+const FormDiv = styled.div`
+    padding: 6px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    color: royalblue;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        color: darkblue;
+    }
+
+    h4{
+        color: darkslateblue;
+    }
+
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+
+    label{
+        padding: 6px 10px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+`
+
+const OwnDiv= styled.div`
+    display: flex;
+    flex-direction: row;
+
+`
+const ErrorDiv = styled.div`
+    align-items: center;
+    color: darkred;
+    display:flex;
+    justify-content: center;
+`
 
 export default function SignupOwner(props) {
 
@@ -18,9 +60,11 @@ export default function SignupOwner(props) {
     }
 
     return (
-        <form className="owner-form container" onSubmit={onSubmit}>        
+        <form className="owner-form container" onSubmit={onSubmit}>
+            <FormDiv>       
             <h2>Let's get started</h2>
             <div className="owner-form-group inputs">
+                <h4>General Information</h4>
                 <label>
                     Username&nbsp;
                     <input
@@ -39,6 +83,7 @@ export default function SignupOwner(props) {
                     type="text"
                     />
                 </label>
+                <OwnDiv>
                 <h4>Trucks Ownered</h4>
                 <label>
                     Truck A
@@ -76,12 +121,14 @@ export default function SignupOwner(props) {
                         onChange={onChange}
                     />
                 </label>
+                </OwnDiv>
                 <button disable={disabled}>Submit!</button>
             </div>
-            <div>
+            <ErrorDiv>
                 <div>{errors.username}</div>
                 <div>{errors.password}</div>
-            </div>
+            </ErrorDiv>
+            </FormDiv> 
         </form>
     )
 }
